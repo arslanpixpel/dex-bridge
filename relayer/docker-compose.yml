@@ -1,0 +1,28 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ccd
+      POSTGRES_PASSWORD: fuck
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  api:
+    image: registry.gitlab.com/evacodescom/pixp-back/ethccd-api
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+  relay:
+    image: registry.gitlab.com/evacodescom/pixp-back/ethccd-relayer
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - ./c.export:/c.export
+    env_file:
+      - .env

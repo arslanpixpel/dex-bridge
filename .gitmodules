@@ -1,0 +1,9 @@
+[submodule "deps/concordium-rust-sdk"]
+	path = deps/concordium-rust-sdk
+	url = git@github.com:Concordium/concordium-rust-sdk.git
+[submodule "ethereum_contracts/lib/forge-std"]
+	path = ethereum_contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "ethereum_contracts/lib/openzeppelin-contracts"]
+	path = ethereum_contracts/lib/openzeppelin-contracts
+	url = https://github.com/Openzeppelin/openzeppelin-contracts

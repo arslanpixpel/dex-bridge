@@ -1,0 +1,46 @@
+name: Linting, Compiling, Running Tests and Deploying
+
+# This job lints, compiles, runs the tests and deploys the ethereum contracts
+
+on:
+  push:
+    branches: main
+    paths: [ethereum_contracts/**]
+
+  pull_request:
+    branches: main
+    paths: [ethereum_contracts/**]
+
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  test:
+    name: Test hardhat-core on Ubuntu with Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ethereum_contracts
+    strategy:
+      matrix:
+        node: [ 16 ]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install
+        run: npm install
+      - name: Run lint1
+        run: npm run solhint
+      - name: Run lint2
+        run: npm run eslint
+      - name: Compile
+        run: npx hardhat compile
+      - name: Run tests
+        run: npx hardhat test
+      - name: Deploy
+        run: npx hardhat run ./scripts/deploy_all.ts

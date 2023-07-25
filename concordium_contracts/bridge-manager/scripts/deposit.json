@@ -1,0 +1,16 @@
+{
+  "Deposit": [
+    {
+      "id": 14,
+      "root": [
+        238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238,
+        238, 238, 238, 238, 238, 238
+      ],
+      "token_id": "00000000",
+      "amount": "1000000000000",
+      "user": {
+        "Account": ["4qu9WeHLFk9fVhKKnwx5uDBfeGSSseaHHrGwjuN5QwXQex7jiU"]
+      }
+    }
+  ]
+}

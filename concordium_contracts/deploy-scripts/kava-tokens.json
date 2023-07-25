@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Kava.eth",
+    "token_metadata_url": "https://pixp.dee4is.lol/concordium/static/tokens/KAVA.json"
+  },
+  {
+    "name": "USDC.eth",
+    "token_metadata_url": "https://pixp.dee4is.lol/concordium/static/tokens/USDC.json"
+  }
+]

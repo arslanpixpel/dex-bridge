@@ -1,0 +1,24 @@
+{
+  "bridge_manager": {
+    "index": 4602,
+    "subindex": 0
+  },
+  "tokens": [
+    {
+      "name": "Kava.eth",
+      "token_url": "https://pixp.dee4is.lol/concordium/static/tokens/KAVA.json",
+      "contract": {
+        "index": 4603,
+        "subindex": 0
+      }
+    },
+    {
+      "name": "USDC.eth",
+      "token_url": "https://pixp.dee4is.lol/concordium/static/tokens/USDC.json",
+      "contract": {
+        "index": 4604,
+        "subindex": 0
+      }
+    }
+  ]
+}

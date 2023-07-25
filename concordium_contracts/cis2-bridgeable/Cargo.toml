@@ -1,0 +1,23 @@
+[package]
+edition = "2018"
+name = "cis2-bridgeable"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["std", "wee_alloc"]
+std = ["concordium-std/std", "concordium-cis2/std"]
+wee_alloc = ["concordium-std/wee_alloc"]
+
+[dependencies]
+concordium-cis2 = {version = "3.0.0", default-features = false, features = ["u256_amount"]}
+concordium-std = {version = "6.0.1", default-features = false}
+primitive-types = {version = "0.11", default-features = false}
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+codegen-units = 1
+opt-level = "s"

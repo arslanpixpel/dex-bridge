@@ -1,0 +1,4 @@
+*target/
+.vscode
+deploy-scripts/data
+deploy-scripts/mytmp

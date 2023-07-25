@@ -1,0 +1,36 @@
+on: [push]
+
+name: build
+
+jobs:
+  build:
+    name: deploy-scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: commit
+        uses: pr-mpt/actions-commit-hash@v1
+      # install rust
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      # install protoc
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v1
+
+      # clone dependencies for concordium-rust-sdk
+      - name: Prepare build
+        run: ./.github/scripts/prepare.sh
+        shell: bash
+
+      # build the binary
+      - name: "Build deploy-scripts"
+        uses: marcopolo/cargo@master # TODO: - uses: actions-rs/cargo@v1 https://github.com/actions-rs/cargo/pull/59
+        with:
+          working-directory: deploy-scripts
+          command: build
+
+      # Build everything
+      - name: "Build deploy-scripts"
+        run: ./.github/scripts/build_all.sh
+        shell: bash
