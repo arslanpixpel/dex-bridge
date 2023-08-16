@@ -54,7 +54,7 @@ struct Api {
     max_pool_size:      usize,
     #[clap(
         long = "request-timeout",
-        default_value = "1000",
+        default_value = "10000",
         help = "Request timeout in millisecons.",
         env = "ETHCCD_API_REQUEST_TIMEOUT"
     )]
