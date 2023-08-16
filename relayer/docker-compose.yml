@@ -9,7 +9,7 @@ services:
         volumes:
             - ./data:/var/lib/postgresql/data
     api:
-        build: ./scripts/api.Dockerfile
+        build: scripts/api.Dockerfile
         restart: always
         depends_on:
             - db
@@ -18,7 +18,7 @@ services:
         ports:
             - 8080:8080
     relay:
-        build: ./scripts/ethccd.Dockerfile
+        build: scripts/ethccd.Dockerfile
         restart: always
         depends_on:
             - db
