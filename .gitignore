@@ -12,3 +12,5 @@ artifacts
 .vscode
 deploy-scripts/data
 deploy-scripts/mytmp
+dex-backend.pem
+ec2.md
